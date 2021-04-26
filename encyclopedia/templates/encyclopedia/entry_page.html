@@ -1,0 +1,29 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-10 body-content">
+            {% if entry_exists%}
+
+                {{ body_content| safe }}
+                <div class="col-sm-3 col-2 side-nav-links">
+                    <a href="{% url 'edit' title %}"> <button class="submit">
+                        Edit
+                    </button></a>
+                    
+                </div>
+            {% else%}
+                <h1>404 error!!</h1>
+                <h3> Requested page not found</h3>    
+            {% endif %}    
+        
+        </div>
+        
+    </div>
+</div>
+{% endblock %}
